@@ -24,7 +24,8 @@ public class DemoController {
 	public ResponseEntity<String> sayHello() {
 		return ResponseEntity.ok().body("Hello");
 	}
-
+	
+	@Secured("ROLE_TL")
 	@GetMapping("/AllRecords")
 	public ResponseEntity<List<Demo>> getAll() {
 		return ResponseEntity.ok().body(demoService.getAllDetails());
