@@ -29,28 +29,27 @@ public class DemoAuthorizationfilter implements Filter {
 		Authentication auth = null;
 		HttpServletRequest httpServletReq = (HttpServletRequest) request;
 		String key = httpServletReq.getHeader("KEY");
-		if (key != null && key.contains("ADMIN")) {
+		if (key != null) {
 			SimpleGrantedAuthority role1 = new SimpleGrantedAuthority("ROLE_TL");
-			SimpleGrantedAuthority role = new SimpleGrantedAuthority("ROLE_ADMIN");
 			Set<GrantedAuthority> grantedAuth = new HashSet<GrantedAuthority>();
-			grantedAuth.add(role);
 			grantedAuth.add(role1);
+			
+			if(key.contains("ADMIN")) {
+				role1 = new SimpleGrantedAuthority("ROLE_ADMIN");
+				grantedAuth.add(role1);
+			}
+			
 			auth = new PreAuthenticatedAuthenticationToken(
-					User.builder().username("ADMIN").authorities(grantedAuth).password("").build(), "", grantedAuth);
+					User.builder().username(key).authorities(grantedAuth).password("").build(), "", grantedAuth);
 			auth.setAuthenticated(true);
 			SecurityContextHolder.getContext().setAuthentication(auth);
 			chain.doFilter(request, response);
 
 		} else {
-			SimpleGrantedAuthority role1 = new SimpleGrantedAuthority("ROLE_TL");
-			Set<GrantedAuthority> grantedAuth = new HashSet<GrantedAuthority>();
-			grantedAuth.add(role1);
-			auth = new PreAuthenticatedAuthenticationToken(
-					User.builder().username("ANYONE").authorities(grantedAuth).password("").build(), "", grantedAuth);
-			auth.setAuthenticated(true);
-			SecurityContextHolder.getContext().setAuthentication(auth);
+			SecurityContextHolder.getContext().setAuthentication(null);
 			HttpServletResponse resp = (HttpServletResponse) response;
-			chain.doFilter(request, response);
+			resp.sendError(HttpStatus.UNAUTHORIZED.value(), "UnAuthorised");
+			return;
 		}
 
 	}
