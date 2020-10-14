@@ -45,4 +45,8 @@ public class Demo {
 		this.lastName = lastName;
 	}
 
+	@Override
+	public String toString() {
+		return ("id :" + (id!=null? id.toString(): null) + " First Name: "+ firstName + "Last Name: "+ lastName );
+	}
 }
