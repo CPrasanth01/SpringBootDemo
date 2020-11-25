@@ -4,6 +4,7 @@
 
  * [ RestController. ](#REST)
  * [ Swagger. ](#Swagger)
+ * [ldap](#LDAP)
  * [ Usage tips. ](#Tips)
 
  ## REST
@@ -18,9 +19,11 @@
  - [Local URL](http://localhost:8090/swagger-ui/index.html)
   * /v3/api-docs
   
+  ## LDAP
+  - [LDAP Server Setup](http://kukusan-network.blogspot.com/2012/01/how-to-setting-ldap-openldap-in-windows.html)
+  - [LDAP Configuration](http://www.rlmueller.net/LDAP_Binding.htm#:~:text=The%20moniker%20%22ou%22%20means%20organizational,%22dc%22%20means%20domain%20component)
   
   ## TIPS
   - [Various Annotation](https://springframework.guru/spring-framework-annotations/)
-  - [LDAP Configuration](http://www.rlmueller.net/LDAP_Binding.htm#:~:text=The%20moniker%20%22ou%22%20means%20organizational,%22dc%22%20means%20domain%20component)
   - [ReadMe Formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
  
