@@ -21,4 +21,6 @@
   
   ## TIPS
   - [Various Annotation](https://springframework.guru/spring-framework-annotations/)
+  - [LDAP Configuration](http://www.rlmueller.net/LDAP_Binding.htm#:~:text=The%20moniker%20%22ou%22%20means%20organizational,%22dc%22%20means%20domain%20component)
   - [ReadMe Formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
+ 
